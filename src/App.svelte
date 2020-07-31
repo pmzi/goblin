@@ -1,25 +1,27 @@
 <script>
-	import SearchForm from './SearchForm.svelte';
-	export let name;
+	import Search from './Search/index.svelte'
+	import SubmitFormModal from './SubmitFormModal.svelte';
 
-	let loading = false;
-	let isSubmitted = false;
-
-	function submit({ detail: model }){
-		// submit
-		loading = true;
-		setTimeout(()=>{
-			isSubmitted = true;
-			loading = false;
-		}, 1000)
+	let isShowingForm = false;
+	let emails = [];
+	function showForm(selectedEmails){
+		emails = selectedEmails;
+		console.log("SHOW")
+		isShowingForm = true;
+	}
+	function hideForm(){
+		isShowingForm = false;
 	}
 </script>
 
 <div class="app">
-	<div class="app__search-form" class:app__search-form--active={isSubmitted}>
-		<SearchForm {loading} on:submit={submit} />
-	</div>
+	<div class="app__content">
+		<Search on:submit-emails={showForm} />
 
+		{#if isShowingForm}
+			<SubmitFormModal on:cancel={hideForm} {emails} />
+		{/if}
+	</div>
 </div>
 
 <style>
@@ -27,20 +29,13 @@
 	min-height: 100vh;
 	background-color: whitesmoke;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 	padding-top: 180px;
 	position: relative;
 }
-.app__search-form {
-	transition-duration: 0.5s;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: auto;
-	transform: translate(-50%, -50%);
-}
-.app__search-form--active {
-	transform: translateX(-50%);
-	top: 50px;
+.app__content {
+	width: 100%;
+	max-width: 1000px;
 }
 </style>

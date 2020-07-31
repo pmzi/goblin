@@ -1,9 +1,9 @@
 <script>
   export let label = "";
-  export let width = 100;
+  export let width = "100%";
 </script>
 
-<div style={`width: ${width}px`} class="form-item">
+<div style={`width: ${width}`} class="form-item">
   <label class="form-item__label">
     { label }
   </label>

@@ -1,16 +1,21 @@
 <script>
-  import FormItem from './FormItem.svelte';
-  import Button from './Button.svelte';
+  import FormItem from '../FormItem.svelte';
+  import Button from '../Button.svelte';
   export let loading;
 
-  import { createEventDispatcher  } from 'svelte';
+  import { createEventDispatcher, onMount  } from 'svelte';
 
+  let urlInputRef = null;
   const dispatch = createEventDispatcher ();
 
   const model = {
     url: "",
     depth: 0,
   };
+
+  onMount(()=>{
+    urlInputRef.focus();
+  })
 
   function submit(){
     console.log("Hello")
@@ -21,25 +26,21 @@
 
 <div class="search-form">
   <form on:submit|preventDefault={submit} class="search-form__form">
-    <FormItem width="500" label="Enter URL:">
-      <input class="search-form__input search-form__input" type="url" bind:value={model.url} placeholder="For example: https://google.com/" required />
+    <FormItem width="500px" label="Enter URL:">
+      <input bind:this={urlInputRef} class="search-form__input search-form__input" type="url" bind:value={model.url} placeholder="For example: https://google.com/" required />
     </FormItem>
-    <FormItem width="80" label="Depth:">
+    <FormItem width="80px" label="Depth:">
       <input class="search-form__input search-form__input" type="number" bind:value={model.depth} required />
     </FormItem>
-    <FormItem width="80">
-      <Button {loading} className="search-form__input search-form__input" type="submit">
-        <img />
-        Hey there
-      </Button>
+    <FormItem width="80px">
+      <Button {loading} className="search-form__input search-form__input" type="submit" icon="search.png" />
     </FormItem>
   </form>
 </div>
 
 <style>
 .search-form {
-  max-width: 800px;
-  width: 100%;
+
 }
 .search-form__form {
   display: flex;
