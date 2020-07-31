@@ -14,26 +14,18 @@
   const dispatch = createEventDispatcher();
 
 	function grabEmails({ detail: model }){
-		// submit
 		loading = true;
-		setTimeout(()=>{
+		fetch("/.netlify/functions/grab-emails", {
+			body: JSON.stringify(model),
+			method: "POST",
+    }).then(({ result: { emails } })=>{
 			isSubmitted = true;
+			result = selectedEmails = emails;
+    }).catch(({ message })=>{
+			alert(message)
+		}).finally(()=>{
 			loading = false;
-			result = selectedEmails = [
-				{
-					id: 1,
-					email: 'pouya.mozafar@gmail.com',
-					depth: 1,
-					link: 'https://google.com/'
-				},
-				{
-					id: 2,
-					email: 'pouya@cafebazaar.ir',
-					depth: 1,
-					link: 'https://google.com/'
-				},
-			]
-		}, 1000)
+		});
   }
   
   function submitEmails(){

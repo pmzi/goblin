@@ -18,7 +18,6 @@
   })
 
   function submit(){
-    console.log("Hello")
     dispatch('submit', model);
   }
 
