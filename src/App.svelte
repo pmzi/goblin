@@ -21,6 +21,9 @@
 			<SubmitFormModal on:cancel={hideForm} {emails} />
 		{/if}
 	</div>
+	<footer class="app__footer">
+		Created By <abbr title="">Fatemeh Alizadeh</abbr>, <abbr>Setayesh Saemi</abbr>, <abbr>Amin Khorrami</abbr>, <abbr title="966127033">Pouya MozaffarMagham</abbr>
+	</footer>
 </div>
 
 <style>
@@ -36,5 +39,10 @@
 .app__content {
 	width: 100%;
 	max-width: 1000px;
+	flex-grow: 1;
+}
+.app__footer {
+	flex-basis: 40px;
+	color: rgb(104, 104, 104);
 }
 </style>
