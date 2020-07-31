@@ -5,6 +5,8 @@
   import { fade } from 'svelte/transition';
   import { createEventDispatcher  } from 'svelte';
 
+  export let emails = [];
+
   const dispatch = createEventDispatcher();
 
   let text = "";
@@ -20,13 +22,24 @@
   
   function submit(){
     loading = true;
-    setTimeout(()=>{
-      loading = false;
+    const transformedEmails = emails.map(({email}) => email)
+    fetch("/.netlify/functions/send-emails", {
+      method: "POST",
+      body: JSON.stringify({
+        emails: transformedEmails,
+        text,
+      }),
+    }).then(res => res.json()).then(({ message: serverMessage })=>{
+      message = serverMessage;
       sent = true;
       succeed = true;
-      message = "Emails sent successfully!";
-    }, 1000);
-    console.log('submit')
+    }).catch(({ message: serverMessage })=>{
+      message = serverMessage;
+      sent = false;;
+      succeed = false;
+    }).finally(()=>{
+      loading = false;
+    });
   }
 </script>
 

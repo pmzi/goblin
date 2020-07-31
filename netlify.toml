@@ -1,0 +1,9 @@
+[dev]
+command = "yarn dev"
+functions = "server/functions"
+publish = "public"
+
+[build]
+command = "yarn build"
+functions = "server/functions"
+publish = "public"

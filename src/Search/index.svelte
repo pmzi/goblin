@@ -18,7 +18,7 @@
 		fetch("/.netlify/functions/grab-emails", {
 			body: JSON.stringify(model),
 			method: "POST",
-    }).then(({ result: { emails } })=>{
+    }).then(res => res.json()).then(({ result: { emails } })=>{
 			isSubmitted = true;
 			result = selectedEmails = emails;
     }).catch(({ message })=>{

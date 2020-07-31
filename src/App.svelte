@@ -4,9 +4,8 @@
 
 	let isShowingForm = false;
 	let emails = [];
-	function showForm(selectedEmails){
+	function showForm({ detail: selectedEmails }){
 		emails = selectedEmails;
-		console.log("SHOW")
 		isShowingForm = true;
 	}
 	function hideForm(){

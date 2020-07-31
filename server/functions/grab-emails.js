@@ -1,4 +1,4 @@
-import emailGrabber from '../utilities/emailGrabber';
+const emailGrabber = require('../utilities/emailGrabber');
 
 exports.handler = function(event, context, callback) {
   const { url, depth } = JSON.parse(event.body);
@@ -10,18 +10,18 @@ exports.handler = function(event, context, callback) {
       ...email,
     }));
 
-    callback({
-      status: 200,
+    return callback(null, {
+      statusCode: 200,
       body: JSON.stringify({
         message: 'Success!',
         result: {
-          emailsWithID
+          emails: emailsWithID
         },
       })
     });
   }).catch(({ message })=>{
-    callback({
-      status: 200,
+    return callback(null, {
+      statusCode: 500,
       body: JSON.stringify({
         message,
         result: {}
