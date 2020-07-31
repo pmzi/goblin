@@ -40,8 +40,8 @@
           {email.depth}
         </td>
         <td>
-          <a href={email.link}>
-            <img />
+          <a target="_blank" href={email.url}>
+            <img class="result-list__link-icon" src="/icons/link.png" />
           </a>
         </td>
       </tr>
@@ -69,5 +69,8 @@
 .result-list td {
   text-align: center;
 }
-
+.result-list__link-icon {
+  width: 16px;
+  height: 16px;
+}
 </style>
