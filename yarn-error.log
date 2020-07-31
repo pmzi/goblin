@@ -1,0 +1,47 @@
+Arguments: 
+  /usr/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files (x86)/Intel/iCLS Client/:/mnt/c/Program Files/Intel/iCLS Client/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Common Files/Acronis/SnapAPI/:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Users/Pouya/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Pouya/AppData/Roaming/npm:/mnt/c/Users/Pouya/AppData/Local/Programs/Microsoft VS Code/bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  10.19.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: connect ECONNREFUSED 10.10.34.35:443
+      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1107:14)
+
+npm manifest: 
+  {
+    "name": "svelte-app",
+    "version": "1.0.0",
+    "scripts": {
+      "build": "rollup -c",
+      "dev": "rollup -c -w",
+      "start": "sirv public"
+    },
+    "devDependencies": {
+      "@rollup/plugin-commonjs": "^12.0.0",
+      "@rollup/plugin-node-resolve": "^8.0.0",
+      "rollup": "^2.3.4",
+      "rollup-plugin-livereload": "^1.0.0",
+      "rollup-plugin-svelte": "^5.0.3",
+      "rollup-plugin-terser": "^5.1.2",
+      "svelte": "^3.0.0"
+    },
+    "dependencies": {
+      "sirv-cli": "^1.0.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
