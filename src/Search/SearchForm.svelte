@@ -29,7 +29,7 @@
       <input disabled={loading} bind:this={urlInputRef} class="search-form__input search-form__input" type="url" bind:value={model.url} placeholder="For example: https://google.com/" required />
     </FormItem>
     <FormItem width="80px" label="Depth:">
-      <input disabled={loading} class="search-form__input search-form__input" type="number" bind:value={model.depth} required />
+      <input min="0" disabled={loading} class="search-form__input search-form__input" type="number" bind:value={model.depth} required />
     </FormItem>
     <FormItem width="80px">
       <Button {loading} className="search-form__input search-form__input" type="submit" icon="search.png" />
