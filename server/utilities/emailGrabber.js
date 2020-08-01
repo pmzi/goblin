@@ -5,8 +5,6 @@ const EMAIL_REGEXP = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{
 const GLOBAL_URL_REGEXP = new RegExp(URL_REGEXP.source, 'g');
 const GLOBAL_EMAIL_REGEXP = new RegExp(EMAIL_REGEXP.source, 'g');
 
-emailGrabber("http://37.152.180.106/", 0).then(d => console.log(d.length))
-
 async function emailGrabber(url, depth = 1, currentDepth = 1, foundEmails = new Set(), foundUrls = new Set()){
   const emails = [];
 
@@ -17,7 +15,7 @@ async function emailGrabber(url, depth = 1, currentDepth = 1, foundEmails = new 
   foundUrls.add(url);
   
   const fetchResult = await fetch(url);
-  const content = await fetchResult.text() + "http://37.152.180.106/";
+  const content = await fetchResult.text();
   
   let result;
   
