@@ -7,7 +7,7 @@
   export let icon = "";
 </script>
 
-<button class="button" class:button--primary={primary} class:button--danger={danger} {type} on:click {disabled} on:submit>
+<button class="button" class:button--primary={primary} class:button--danger={danger} {type} on:click disabled={disabled||loading} on:submit>
   {#if loading}
     <img class="button__loading" src="/icons/spinner.svg" alt="loading" />
   {:else if icon}
@@ -27,6 +27,9 @@
   background-color: white;
   border: 1px solid #eee;
   padding: 0 20px;
+}
+.button:disabled {
+  cursor: not-allowed;
 }
 .button__loading {
   height: 80%;

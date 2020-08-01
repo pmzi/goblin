@@ -37,14 +37,16 @@
   <SearchForm {loading} on:submit={grabEmails} />
 </div>
 
-{#if result.length}
-  <div class="search__list-wrapper" transition:fade={{delay: 500}}>
+{#if isSubmitted && !loading}
+  <div class="search__list-wrapper" out:fade in:fade={{delay: 500}}>
     <div class="search__list">
       <ResultList bind:selectedEmails={selectedEmails} {result} />
     </div>
-    <Button on:click={submitEmails}>
-      Send Email
-    </Button>
+    {#if result.length}
+      <Button on:click={submitEmails}>
+        Send Email
+      </Button>
+    {/if}
   </div>
 {/if}
 
