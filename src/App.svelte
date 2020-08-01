@@ -22,7 +22,7 @@
 		{/if}
 	</div>
 	<footer class="app__footer">
-		Created By <abbr title="">Fatemeh Alizadeh</abbr>, <abbr>Setayesh Saemi</abbr>, <abbr>Amin Khorrami</abbr>, <abbr title="966127033">Pouya MozaffarMagham</abbr>
+		Created By <abbr title="966127020">Fatemeh Alizadeh</abbr>, <abbr title="966127016">Setayesh Saemi</abbr>, <abbr title="966127049">Sogand Tatlari</abbr>, <abbr title="966127033">Pouya MozaffarMagham</abbr>
 	</footer>
 </div>
 
