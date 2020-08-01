@@ -20,7 +20,7 @@
 			method: "POST",
     }).then(res => res.json()).then(({ result: { emails } })=>{
 			isSubmitted = true;
-			result = selectedEmails = emails;
+			result = emails;
     }).catch(({ message })=>{
 			alert(message)
 		}).finally(()=>{

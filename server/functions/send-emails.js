@@ -5,18 +5,18 @@ const send = require('gmail-send')({
 });
 
 
-exports.handler = function(event, context, callback) {
+exports.handler = async function(event, context, callback) {
   const { emails, text } = JSON.parse(event.body);
   // We dont want to reach max RAM!
   const limitedEmails = emails.slice(0, 5)
   for(email of limitedEmails){
-      send({
+      await send({
         to: email,
         text,
       });
   }
 
-  return callback(null, {
+  callback(null, {
     statusCode: 200,
     body: JSON.stringify({
       message: 'Emails are queued and being sent!',
