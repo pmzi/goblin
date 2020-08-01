@@ -4,6 +4,8 @@
 
   import { slide } from 'svelte/transition';
 
+  $: canSelectMoreEmails = selectedEmails.length < 5;
+
 </script>
 
 <div class="result-list">
@@ -32,7 +34,7 @@
         {#each result as email (email.email)}
           <tr>
             <td>
-              <input type="checkbox" checked value={email} bind:group={selectedEmails} />
+              <input disabled={!selectedEmails.includes(email) && !canSelectMoreEmails} type="checkbox" checked value={email} bind:group={selectedEmails} />
             </td>
             <td>
               {email.id}
