@@ -15,7 +15,7 @@ exports.handler = function(event, context, callback) {
       });
   }
 
-  callback(null, {
+  return callback(null, {
     statusCode: 200,
     body: JSON.stringify({
       message: 'Emails are queued and being sent!',
