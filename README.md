@@ -11,7 +11,7 @@ You have to have [Node.js](https://nodejs.org/en/) installed and then run these 
 $ git clone git@github.com:pmzi/goblin.git
 $ cd goblin
 $ npm i
-$ sudo npm i -g netlify-dev
+$ sudo npm i -g netlify-cli
 $ netlify dev
 ```
 After that, server will start at [localhost:8888](http://localhost:8888).
