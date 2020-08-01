@@ -7,8 +7,9 @@ const send = require('gmail-send')({
 
 exports.handler = function(event, context, callback) {
   const { emails, text } = JSON.parse(event.body);
-
-  for(email of emails){
+  // We dont want to reach max RAM!
+  const limitedEmails = emails.slice(0, 5)
+  for(email of limitedEmails){
       send({
         to: email,
         text,
