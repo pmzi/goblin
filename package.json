@@ -16,6 +16,7 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "faunadb": "^2.14.2",
     "gmail-send": "^1.8.10",
     "node-fetch": "^2.6.0",
     "sirv-cli": "^1.0.0"

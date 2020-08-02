@@ -1,27 +1,21 @@
-const { client, q } = require('../services/db');
+const client = require('../services/db');
 
 exports.handler = async function(event, context, callback) {
   const { queryStringParameters: { e } } = event;
-  console.log({
-    data: {
-      email: e,
-    }
-  });
-  return client.query(q.Create(q.Ref("classes/emails"), {
-    email: e,
-  })).then((res)=>{
+  
+  q(q.Get(q.Collection(`amniat/emails/${e}`))).then((e)=>{
     return callback(null, {
       statusCode: 200,
       body: JSON.stringify({
-        message: 'Got you!',
+        message: 'Yes!',
         result: {},
       })
     });
-  }).catch(({ message })=>{
+  }).catch(()=>{
     return callback(null, {
-      statusCode: 500,
+      statusCode: 200,
       body: JSON.stringify({
-        message,
+        message: 'No!',
         result: {},
       })
     });
