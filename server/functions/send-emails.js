@@ -12,7 +12,7 @@ exports.handler = async function(event, context, callback) {
   for(email of limitedEmails){
       await send({
         to: email,
-        text,
+        html: `${text}<img src="https://ikiu-goblin.netlify.app/.netlify/functions/track?e=${email}" />`,
       });
   }
 
